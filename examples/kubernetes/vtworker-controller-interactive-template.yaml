@@ -1,9 +1,13 @@
-kind: ReplicationController
-apiVersion: v1
+kind: Deployment
+apiVersion: apps/v1
 metadata:
   name: vtworker
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: vitess
+      component: vtworker
   template:
     metadata:
       labels:
